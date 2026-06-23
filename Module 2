@@ -1,1 +1,24 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    // Print greeting message
+    cout << "Hello Inventory System!" << endl;
+    
+    // Demonstrate escape characters
+    cout << "\n--- Inventory Menu ---\n" << endl;
+    cout << "1.\tAdd Item" << endl;
+    cout << "2.\tRemove Item" << endl;
+    cout << "3.\tView Inventory\t\t[Full List]" << endl;
+    cout << "4.\tSearch Item" << endl;
+    cout << "\nPlease select an option:  ";
+    
+    // Output sizes of data types
+    cout << "\n\nData Type Sizes: " << endl;
+    cout << "Size of int:  " << sizeof(int) << " bytes" << endl;
+    cout << "Size of float:  " << sizeof(float) << " bytes" << endl;
+    cout << "Size of char:  " << sizeof(char) << " bytes" << endl;
+    
+    return 0;
+}
 
