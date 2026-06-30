@@ -1,0 +1,126 @@
+#include <iostream>
+#include <iomanip>
+#include <cmath>
+using namespace std;
+
+// Function declarations
+void calculateCircleArea();
+void displayMultiplicationTable();
+void checkPrimeNumber();
+
+int main() {
+    int choice;
+    
+    do {
+        // Display menu
+        cout << "\n========== MENU ==========" << endl;
+        cout << "1. Calculate Circle Area" << endl;
+        cout << "2. Display Multiplication Table" << endl;
+        cout << "3. Check Prime Number" << endl;
+        cout << "4. Exit" << endl;
+        cout << "===========================" << endl;
+        cout << "Enter your choice (1-4): ";
+        
+        // Input validation
+        if (!(cin >> choice)) {
+            cout << "Invalid input. Please enter a number." << endl;
+            cin.clear();
+            cin.ignore(10000, '\n');
+            continue;
+        }
+        
+        // Process user choice
+        switch (choice) {
+            case 1:
+                calculateCircleArea();
+                break;
+            case 2:
+                displayMultiplicationTable();
+                break;
+            case 3:
+                checkPrimeNumber();
+                break;
+            case 4:
+                cout << "Exiting program. Goodbye!" << endl;
+                break;
+            default:
+                cout << "Invalid choice. Please enter a number between 1 and 4." << endl;
+        }
+    } while (choice != 4);
+    
+    return 0;
+}
+
+// Function to calculate the area of a circle
+void calculateCircleArea() {
+    double radius;
+    const double PI = 3.14159265359;
+    
+    cout << "\n--- Calculate Circle Area ---" << endl;
+    cout << "Enter the radius of the circle: ";
+    
+    if (!(cin >> radius) || radius < 0) {
+        cout << "Invalid input. Please enter a positive number." << endl;
+        cin.clear();
+        cin.ignore(10000, '\n');
+        return;
+    }
+    
+    double area = PI * radius * radius;
+    cout << fixed << setprecision(2);
+    cout << "The area of a circle with radius " << radius 
+         << " is: " << area << " square units" << endl;
+}
+
+// Function to display a multiplication table
+void displayMultiplicationTable() {
+    int number;
+    
+    cout << "\n--- Multiplication Table ---" << endl;
+    cout << "Enter a number for the multiplication table: ";
+    
+    if (!(cin >> number)) {
+        cout << "Invalid input. Please enter a valid integer." << endl;
+        cin.clear();
+        cin.ignore(10000, '\n');
+        return;
+    }
+    
+    cout << "\nMultiplication table for " << number << ":" << endl;
+    for (int i = 1; i <= 10; i++) {
+        cout << number << " x " << i << " = " << (number * i) << endl;
+    }
+}
+
+// Function to check if a number is prime
+void checkPrimeNumber() {
+    int number;
+    bool isPrime = true;
+    
+    cout << "\n--- Prime Number Checker ---" << endl;
+    cout << "Enter a positive integer: ";
+    
+    if (!(cin >> number) || number < 0) {
+        cout << "Invalid input. Please enter a positive integer." << endl;
+        cin.clear();
+        cin.ignore(10000, '\n');
+        return;
+    }
+    
+    if (number <= 1) {
+        isPrime = false;
+    } else {
+        for (int i = 2; i <= sqrt(number); i++) {
+            if (number % i == 0) {
+                isPrime = false;
+                break;
+            }
+        }
+    }
+    
+    if (isPrime) {
+        cout << number << " is a prime number." << endl;
+    } else {
+        cout << number << " is not a prime number." << endl;
+    }
+}
