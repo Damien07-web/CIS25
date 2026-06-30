@@ -1,0 +1,79 @@
+========== MENU ==========
+1. Calculate Circle Area
+2. Display Multiplication Table
+3. Check Prime Number
+4. Exit
+===========================
+Enter your choice (1-4):  
+
+
+Enter your choice (1-4):  1
+
+--- Calculate Circle Area ---
+Enter the radius of the circle:  5
+The area of a circle with radius 5.00 is:  78.54 square units
+
+========== MENU ==========
+1. Calculate Circle Area
+2. Display Multiplication Table
+3. Check Prime Number
+4. Exit
+===========================
+Enter your choice (1-4):  
+
+
+Enter your choice (1-4):  2
+
+--- Multiplication Table ---
+Enter a number for the multiplication table:  7
+
+Multiplication table for 7: 
+7 x 1 = 7
+7 x 2 = 14
+7 x 3 = 21
+7 x 4 = 28
+7 x 5 = 35
+7 x 6 = 42
+7 x 7 = 49
+7 x 8 = 56
+7 x 9 = 63
+7 x 10 = 70
+
+========== MENU ==========
+1. Calculate Circle Area
+2. Display Multiplication Table
+3. Check Prime Number
+4. Exit
+===========================
+Enter your choice (1-4):  
+
+
+Enter your choice (1-4):  3
+
+--- Prime Number Checker ---
+Enter a positive integer:  17
+17 is a prime number.
+
+========== MENU ==========
+1. Calculate Circle Area
+2. Display Multiplication Table
+3. Check Prime Number
+4. Exit
+===========================
+Enter your choice (1-4):  
+
+
+Enter your choice (1-4):  5
+Invalid choice. Please enter a number between 1 and 4.
+
+========== MENU ==========
+1. Calculate Circle Area
+2. Display Multiplication Table
+3. Check Prime Number
+4. Exit
+===========================
+Enter your choice (1-4):  
+
+
+Enter your choice (1-4):  4
+Exiting program. Goodbye!
