@@ -1,0 +1,47 @@
+{
+    // Declare variables to store item information
+    string itemName;
+    int quantity;
+    float costPerItem;
+    float totalCost;
+    
+    // Print greeting message
+    cout << "Hello Inventory System!" << endl;
+    
+    // Demonstrate escape characters
+    cout << "\n--- Inventory Menu ---\n" << endl;
+    cout << "1.\tAdd Item" << endl;
+    cout << "2.\tRemove Item" << endl;
+    cout << "3.\tView Inventory\t\t[Full List]" << endl;
+    cout << "4.\tSearch Item" << endl;
+    cout << "\nPlease select an option: 1 (Add Item)" << endl;
+    
+    // Get item details from user
+    cout << "\n--- Add New Item ---" << endl;
+    cout << "Enter item name: ";
+    getline(cin, itemName);  // Using getline to capture spaces in item names
+    
+    cout << "Enter quantity: ";
+    cin >> quantity;
+    
+    cout << "Enter cost per item: $";
+    cin >> costPerItem;
+    
+    // Calculate total cost
+    totalCost = quantity * costPerItem;
+    
+    // Display the results with proper formatting
+    cout << "\n--- Item Summary ---" << endl;
+    cout << "Item Name: " << itemName << endl;
+    cout << "Quantity: " << quantity << endl;
+    cout << "Cost per Item: $" << fixed << setprecision(2) << costPerItem << endl;
+    cout << "Total Cost: $" << fixed << setprecision(2) << totalCost << endl;
+    
+    // Output sizes of data types
+    cout << "\n\nData Type Sizes:  " << endl;
+    cout << "Size of int:   " << sizeof(int) << " bytes" << endl;
+    cout << "Size of float:   " << sizeof(float) << " bytes" << endl;
+    cout << "Size of char:   " << sizeof(char) << " bytes" << endl;
+    
+    return 0;
+}
