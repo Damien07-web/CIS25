@@ -1,0 +1,26 @@
+Hello Inventory System!
+
+--- Inventory Menu ---
+
+1.      Add Item
+2.      Remove Item
+3.      View Inventory          [Full List]
+4.      Search Item
+
+Please select an option: 1 (Add Item)
+
+--- Add New Item ---
+Enter item name: Widget Pro
+Enter quantity: 25
+Enter cost per item: $12.99
+
+--- Item Summary ---
+Item Name: Widget Pro
+Quantity: 25
+Cost per Item: $12.99
+Total Cost: $324.75
+
+Data Type Sizes:  
+Size of int:   4 bytes
+Size of float:   4 bytes
+Size of char:   1 bytes
