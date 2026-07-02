@@ -1,0 +1,49 @@
+Welcome to the Shopping Cart Program!
+No saved cart found. Starting with an empty cart.
+
+========== SHOPPING CART MENU ==========
+1. Add Item to Cart
+2. View Cart
+3. Save Cart to File
+4. Load Cart from File
+5. Checkout
+6. Exit
+========================================
+Enter your choice (1-6): 1
+
+--- Add Item to Cart ---
+Enter item name: Laptop
+Enter item price: $999.99
+Enter quantity: 2
+Item added successfully!
+
+========== SHOPPING CART MENU ==========
+1. Add Item to Cart
+2. View Cart
+3. Save Cart to File
+4. Load Cart from File
+5. Checkout
+6. Exit
+========================================
+Enter your choice (1-6): 2
+
+--- Shopping Cart ---
+Item Name                Price  Quantity       Total
+----------------------------------------------------
+Laptop                  999.99         2     1999.98
+----------------------------------------------------
+Total Amount: $1999.98
+
+========== SHOPPING CART MENU ==========
+1. Add Item to Cart
+2. View Cart
+3. Save Cart to File
+4. Load Cart from File
+5. Checkout
+6. Exit
+========================================
+Enter your choice (1-6): 6
+Saving cart before exit...
+Cart saved successfully to cart.txt!
+Thank you for using the Shopping Cart Program!
+Goodbye!
