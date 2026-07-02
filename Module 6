@@ -1,0 +1,225 @@
+#include <iostream>
+#include <vector>
+#include <string>
+#include <fstream>
+#include <iomanip>
+
+using namespace std;
+
+// Item structure to represent products in the cart
+struct Item {
+    string name;
+    double price;
+    int quantity;
+    
+    // Constructor
+    Item(string n = "", double p = 0.0, int q = 0) : name(n), price(p), quantity(q) {}
+};
+
+// Shopping Cart class
+class ShoppingCart {
+private:
+    vector<Item> items;
+    string filename;
+
+public:
+    // Constructor
+    ShoppingCart(string file = "cart.txt") : filename(file) {}
+    
+    // Add item to cart
+    void addItem() {
+        string name;
+        double price;
+        int quantity;
+        
+        cout << "\n--- Add Item to Cart ---" << endl;
+        cout << "Enter item name: ";
+        cin.ignore(); // Clear the input buffer
+        getline(cin, name);
+        
+        cout << "Enter item price: $";
+        cin >> price;
+        
+        cout << "Enter quantity: ";
+        cin >> quantity;
+        
+        if (price < 0 || quantity <= 0) {
+            cout << "Error: Invalid price or quantity!" << endl;
+            return;
+        }
+        
+        items.push_back(Item(name, price, quantity));
+        cout << "Item added successfully!" << endl;
+    }
+    
+    // Display cart contents
+    void viewCart() {
+        if (items.empty()) {
+            cout << "\nYour cart is empty!" << endl;
+            return;
+        }
+        
+        cout << "\n--- Shopping Cart ---" << endl;
+        cout << left << setw(20) << "Item Name" 
+             << right << setw(10) << "Price" 
+             << setw(10) << "Quantity" 
+             << setw(12) << "Total" << endl;
+        cout << string(52, '-') << endl;
+        
+        double total = 0.0;
+        for (const auto& item : items) {
+            double itemTotal = item.price * item.quantity;
+            total += itemTotal;
+            
+            cout << left << setw(20) << item.name 
+                 << right << setw(10) << fixed << setprecision(2) << item.price
+                 << setw(10) << item.quantity
+                 << setw(12) << itemTotal << endl;
+        }
+        
+        cout << string(52, '-') << endl;
+        cout << "Total Amount: $" << fixed << setprecision(2) << total << endl;
+    }
+    
+    // Save cart to file
+    bool saveCart() {
+        ofstream file(filename);
+        if (!file.is_open()) {
+            cout << "Error: Could not open file for saving!" << endl;
+            return false;
+        }
+        
+        file << items.size() << endl;
+        for (const auto& item : items) {
+            file << item.name << endl;
+            file << item.price << endl;
+            file << item.quantity << endl;
+        }
+        
+        file.close();
+        cout << "Cart saved successfully to " << filename << "!" << endl;
+        return true;
+    }
+    
+    // Load cart from file
+    bool loadCart() {
+        ifstream file(filename);
+        if (!file.is_open()) {
+            cout << "No saved cart found. Starting with an empty cart." << endl;
+            return false;
+        }
+        
+        items.clear();
+        int itemCount;
+        file >> itemCount;
+        file.ignore(); // Clear the newline character
+        
+        for (int i = 0; i < itemCount; i++) {
+            string name;
+            double price;
+            int quantity;
+            
+            getline(file, name);
+            file >> price;
+            file >> quantity;
+            file.ignore(); // Clear the newline character
+            
+            items.push_back(Item(name, price, quantity));
+        }
+        
+        file.close();
+        cout << "Cart loaded successfully from " << filename << "!" << endl;
+        return true;
+    }
+    
+    // Clear cart
+    void clearCart() {
+        items.clear();
+        cout << "Cart cleared!" << endl;
+    }
+    
+    // Get cart size
+    int getCartSize() const {
+        return items.size();
+    }
+};
+
+// Display menu options
+void displayMenu() {
+    cout << "\n========== SHOPPING CART MENU ==========" << endl;
+    cout << "1. Add Item to Cart" << endl;
+    cout << "2. View Cart" << endl;
+    cout << "3. Save Cart to File" << endl;
+    cout << "4. Load Cart from File" << endl;
+    cout << "5. Checkout" << endl;
+    cout << "6. Exit" << endl;
+    cout << "========================================" << endl;
+    cout << "Enter your choice (1-6): ";
+}
+
+// Checkout process
+void checkout(ShoppingCart& cart) {
+    if (cart.getCartSize() == 0) {
+        cout << "\nYour cart is empty! Add some items before checkout." << endl;
+        return;
+    }
+    
+    cart.viewCart();
+    cout << "\n--- Checkout ---" << endl;
+    cout << "Proceed with payment? (y/n): ";
+    
+    char choice;
+    cin >> choice;
+    
+    if (choice == 'y' || choice == 'Y') {
+        cout << "Payment processed successfully!" << endl;
+        cout << "Thank you for your purchase!" << endl;
+        cart.clearCart();
+    } else {
+        cout << "Checkout cancelled." << endl;
+    }
+}
+
+int main() {
+    ShoppingCart cart;
+    int choice;
+    
+    cout << "Welcome to the Shopping Cart Program!" << endl;
+    
+    // Try to load previously saved cart
+    cart.loadCart();
+    
+    do {
+        displayMenu();
+        cin >> choice;
+        
+        switch (choice) {
+            case 1:
+                cart.addItem();
+                break;
+            case 2:
+                cart.viewCart();
+                break;
+            case 3:
+                cart.saveCart();
+                break;
+            case 4:
+                cart.loadCart();
+                break;
+            case 5:
+                checkout(cart);
+                break;
+            case 6:
+                cout << "Saving cart before exit..." << endl;
+                cart.saveCart();
+                cout << "Thank you for using the Shopping Cart Program!" << endl;
+                cout << "Goodbye!" << endl;
+                break;
+            default:
+                cout << "Invalid choice! Please enter a number between 1-6." << endl;
+                break;
+        }
+    } while (choice != 6);
+    
+    return 0;
+}
