@@ -1,0 +1,18 @@
+===== Inventory System Access Levels =====
+
+Alice (Employee) Access:
+- View inventory items
+- Check item availability
+- Request inventory updates
+
+Bob (Manager) Access:
+- View inventory items
+- Add new inventory items
+- Update inventory records
+- Approve employee requests
+
+Charlie (Administrator) Access:
+- Full inventory access
+- Add, remove, and modify items
+- Manage user accounts
+- Change system settings
