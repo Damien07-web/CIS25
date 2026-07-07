@@ -1,0 +1,56 @@
+=========================================
+ Hospital Patient Management System
+=========================================
+1. Add Patient
+2. Display All Patients
+3. Search Patient by ID
+4. Update Patient Information
+5. Save Patients to File
+6. Exit Program
+Enter your choice: 1
+
+Enter Patient ID: 1001
+Enter Patient Name: John Smith
+Enter Age: 45
+Enter Gender: Male
+Enter Diagnosis: Pneumonia
+
+Patient added successfully!
+
+=========================================
+ Hospital Patient Management System
+=========================================
+1. Add Patient
+2. Display All Patients
+3. Search Patient by ID
+4. Update Patient Information
+5. Save Patients to File
+6. Exit Program
+Enter your choice: 2
+
+Patient Records
+--------------------------------------
+ID: 1001
+Name: John Smith
+Age: 45
+Gender: Male
+Diagnosis: Pneumonia
+--------------------------------------
+
+Enter your choice: 3
+Enter Patient ID: 1001
+
+Patient Found!
+ID: 1001
+Name: John Smith
+Age: 45
+Gender: Male
+Diagnosis: Pneumonia
+
+Enter your choice: 5
+
+Patient records saved to patients.txt
+
+Enter your choice: 6
+
+Good Bye!
