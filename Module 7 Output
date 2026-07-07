@@ -1,0 +1,15 @@
+FIFA World Cup 2026 Player Dataset
+Displaying the first 10 players
+
+ID        Name                  Age   Nationality    Team           Position
+--------------------------------------------------------------------------------
+P00055    Rodri Fati            26    Spanish        Spain          Goalkeeper
+P00070    Ansu Le Normand       19    Spanish        Spain          Midfielder
+P00066    Gavi Ramos            18    Spanish        Spain          Midfielder
+P00073    Pedro Cubarsi         20    Spanish        Spain          Forward
+P00059    Alvaro Oyarzabal      23    Spanish        Spain          Defender
+P00072    Dani Gavi             21    Spanish        Spain          Midfielder
+P00058    Rodri Laporte         27    Spanish        Spain          Defender
+P00078    Ansu Fati             27    Spanish        Spain          Forward
+P00056    Pedro Torres          24    Spanish        Spain          Defender
+P00074    Gavi Le Normand       25    Spanish        Spain          Forward
