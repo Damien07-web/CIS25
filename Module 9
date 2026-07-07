@@ -1,0 +1,103 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+// Base Class
+class User {
+protected:
+    string username;
+
+public:
+    // Constructor
+    User(string name) {
+        username = name;
+    }
+
+    // Virtual function
+    virtual void accessLevel() {
+        cout << "General user access." << endl;
+    }
+
+    // Virtual destructor
+    virtual ~User() {}
+};
+
+
+// Derived Class: Employee
+class Employee : public User {
+public:
+    Employee(string name) : User(name) {}
+
+    // Override accessLevel()
+    void accessLevel() override {
+        cout << username << " (Employee) Access:" << endl;
+        cout << "- View inventory items" << endl;
+        cout << "- Check item availability" << endl;
+        cout << "- Request inventory updates" << endl;
+        cout << endl;
+    }
+};
+
+
+// Derived Class: Manager
+class Manager : public User {
+public:
+    Manager(string name) : User(name) {}
+
+    // Override accessLevel()
+    void accessLevel() override {
+        cout << username << " (Manager) Access:" << endl;
+        cout << "- View inventory items" << endl;
+        cout << "- Add new inventory items" << endl;
+        cout << "- Update inventory records" << endl;
+        cout << "- Approve employee requests" << endl;
+        cout << endl;
+    }
+};
+
+
+// Derived Class: Admin
+class Admin : public User {
+public:
+    Admin(string name) : User(name) {}
+
+    // Override accessLevel()
+    void accessLevel() override {
+        cout << username << " (Administrator) Access:" << endl;
+        cout << "- Full inventory access" << endl;
+        cout << "- Add, remove, and modify items" << endl;
+        cout << "- Manage user accounts" << endl;
+        cout << "- Change system settings" << endl;
+        cout << endl;
+    }
+};
+
+
+// Main Program
+int main() {
+
+    // Create users
+    Employee employee("Alice");
+    Manager manager("Bob");
+    Admin admin("Charlie");
+
+    // Polymorphism using base class pointers
+    User* users[3];
+
+    users[0] = &employee;
+    users[1] = &manager;
+    users[2] = &admin;
+
+
+    cout << "===== Inventory System Access Levels =====" << endl;
+    cout << endl;
+
+    // Display each user's permissions
+    for (int i = 0; i < 3; i++) {
+        users[i]->accessLevel();
+    }
+
+
+    return 0;
+}
