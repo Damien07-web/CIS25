@@ -1,0 +1,147 @@
+#include <iostream>
+#include <fstream>
+#include <sstream>
+#include <vector>
+#include <iomanip>
+
+using namespace std;
+
+//---------------------------------------------------------
+// Player Class
+// This class stores information for one player from the
+// CSV file.
+//---------------------------------------------------------
+class Player {
+public:
+    string playerID;
+    string playerName;
+    int age;
+    string nationality;
+    string team;
+    string position;
+
+    // Constructor to initialize a Player object
+    Player(string id, string name, int a,
+           string nation, string t, string pos)
+    {
+        playerID = id;
+        playerName = name;
+        age = a;
+        nationality = nation;
+        team = t;
+        position = pos;
+    }
+
+    // Displays one player's information in a formatted row
+    void display() const
+    {
+        cout << left
+             << setw(10) << playerID
+             << setw(22) << playerName
+             << setw(6) << age
+             << setw(15) << nationality
+             << setw(15) << team
+             << setw(12) << position
+             << endl;
+    }
+};
+
+int main()
+{
+    //---------------------------------------------------------
+    // Open the CSV file
+    //
+    // Expected CSV structure:
+    // player_id,player_name,age,nationality,
+    // team,height,position,...
+    //
+    // The first row contains column headings.
+    //---------------------------------------------------------
+    ifstream file("fifa_world_cup_2026_player_performance.csv");
+
+    // Check that the file opened successfully
+    if (!file)
+    {
+        cout << "Error: Unable to open the file." << endl;
+        return 1;
+    }
+
+    // Vector to store Player objects
+    vector<Player> players;
+
+    string line;
+
+    //---------------------------------------------------------
+    // Skip the header row because it contains column names
+    // instead of player data.
+    //---------------------------------------------------------
+    getline(file, line);
+
+    //---------------------------------------------------------
+    // Read the CSV one line at a time.
+    // Only load the first 10 entries as required.
+    //---------------------------------------------------------
+    while (getline(file, line) && players.size() < 10)
+    {
+        stringstream ss(line);
+        string value;
+        vector<string> columns;
+
+        //-----------------------------------------------------
+        // Split the line using commas.
+        // Each value becomes one element in the vector.
+        //-----------------------------------------------------
+        while (getline(ss, value, ','))
+        {
+            columns.push_back(value);
+        }
+
+        //-----------------------------------------------------
+        // Make sure enough columns exist before accessing them.
+        //-----------------------------------------------------
+        if (columns.size() >= 7)
+        {
+            Player p(
+                columns[0],           // Player ID
+                columns[1],           // Player Name
+                stoi(columns[2]),     // Age
+                columns[3],           // Nationality
+                columns[4],           // Team
+                columns[6]            // Position
+            );
+
+            // Store the player in the vector
+            players.push_back(p);
+        }
+    }
+
+    // Close the file after reading
+    file.close();
+
+    //---------------------------------------------------------
+    // Display table heading
+    //---------------------------------------------------------
+    cout << "FIFA World Cup 2026 Player Dataset\n";
+    cout << "Displaying the first 10 players\n\n";
+
+    cout << left
+         << setw(10) << "ID"
+         << setw(22) << "Name"
+         << setw(6) << "Age"
+         << setw(15) << "Nationality"
+         << setw(15) << "Team"
+         << setw(12) << "Position"
+         << endl;
+
+    cout << string(80, '-') << endl;
+
+    //---------------------------------------------------------
+    // Loop through the vector and display each player's data
+    //---------------------------------------------------------
+    for (const Player &p : players)
+    {
+        p.display();
+    }
+
+    return 0;
+}
