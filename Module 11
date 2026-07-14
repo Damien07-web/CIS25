@@ -1,0 +1,33 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+// Patient structure
+struct Patient {
+    int id;
+    string name;
+    int age;
+};
+
+int main() {
+    // Create a regular Patient variable
+    Patient patient1;
+
+    // Create a pointer that stores the address of patient1
+    Patient* ptr = &patient1;
+
+    // Assign values using the regular variable
+    patient1.id = 101;
+    patient1.name = "John Smith";
+    patient1.age = 35;
+
+    // Display data using the pointer
+    cout << "Patient Information" << endl;
+    cout << "-------------------" << endl;
+    cout << "ID: " << ptr->id << endl;
+    cout << "Name: " << ptr->name << endl;
+    cout << "Age: " << ptr->age << endl;
+
+    return 0;
+}
