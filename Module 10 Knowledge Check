@@ -1,0 +1,22 @@
+1. Explain how constructors and destructors can be used in your project.
+- Constructor: sets the product’s ID, name, and price when the object is created. It also prints a message showing the object was created.
+- Destructor: runs automatically when the object is no longer needed. It prints a message showing the object was destroyed.
+
+2. What similarities do the class, constructor, and destructor share?
+- All belong to the same class.
+- All help manage the object’s lifecycle.
+- Constructors and destructors have the same name as the class.
+- Constructors and destructors do not have a return type.
+
+3. Expected output of the program.
+
+
+Constructor called: Product object created.
+
+Product Details
+---------------
+ID: 101
+Name: Wireless Mouse
+Price: $29.99
+
+Destructor called: Product object destroyed.
