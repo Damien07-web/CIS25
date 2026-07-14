@@ -1,0 +1,8 @@
+Constructor called: Product object created.
+
+Product Details
+---------------
+ID: 101
+Name: Wireless Mouse
+Price: $29.99
+Destructor called: Product object destroyed.
