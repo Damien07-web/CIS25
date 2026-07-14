@@ -1,0 +1,46 @@
+#include <iostream>
+#include <string>
+
+using namespace std;
+
+// Product class
+class Product {
+private:
+    int id;
+    string name;
+    double price;
+
+public:
+    // Constructor
+    Product(int productId, string productName, double productPrice) {
+        id = productId;
+        name = productName;
+        price = productPrice;
+
+        cout << "Constructor called: Product object created." << endl;
+    }
+
+    // Destructor
+    ~Product() {
+        cout << "Destructor called: Product object destroyed." << endl;
+    }
+
+    // Method to print product details
+    void printDetails() {
+        cout << "\nProduct Details" << endl;
+        cout << "---------------" << endl;
+        cout << "ID: " << id << endl;
+        cout << "Name: " << name << endl;
+        cout << "Price: $" << price << endl;
+    }
+};
+
+int main() {
+    // Create a Product object
+    Product product1(101, "Wireless Mouse", 29.99);
+
+    // Display product information
+    product1.printDetails();
+
+    return 0;
+}
