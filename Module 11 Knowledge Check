@@ -1,0 +1,14 @@
+1. What is a pointer, and how did you use it?
+A pointer stores the address of aanother variable. I used it to access and display the patient's information.
+
+2. What does the & operator do?
+The & operator gets the memory address of patient1 and stores it in the pointer.
+
+3. Write the output of your program.
+
+
+Patient Information
+-------------------
+ID: 101
+Name: John Smith
+Age: 35
